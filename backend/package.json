@@ -5,10 +5,11 @@
 	"keywords": [],
 	"license": "ISC",
 	"author": "0s1n",
-	"main": "server.js",
+	"type": "commonjs",
+	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon server.js",
-		"start": "node server.js"
+		"dev": "nodemon index.js",
+		"start": "node index.js"
 	},
 	"dependencies": {
 		"bcrypt": "^5.1.1",
