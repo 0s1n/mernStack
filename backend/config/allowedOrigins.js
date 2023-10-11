@@ -1,5 +1,3 @@
-const allowedOrigins = [
-    "http://localhost:5173"
-]
+const allowedOrigins = ["https://mern-stack-frontend-sigma.vercel.app/"];
 
-module.exports = allowedOrigins
+module.exports = allowedOrigins;
