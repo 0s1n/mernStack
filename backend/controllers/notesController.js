@@ -96,12 +96,12 @@ const deleteNote = async (req, res) => {
     const { id } = req.body
 
     // Confirm data
-    if (!id) {
-        return res.status(400).json({ message: 'Note ID required' })
+    if (!id || typeof id !== 'string') {
+        return res.status(400).json({ message: 'Valid Note ID required' })
     }
 
     // Confirm note exists to delete 
-    const note = await Note.findById(id).exec()
+    const note = await Note.findById({ _id: id }).exec()
 
     if (!note) {
         return res.status(400).json({ message: 'Note not found' })
