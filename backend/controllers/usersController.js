@@ -96,11 +96,11 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
     const { id } = req.body
 
-    if (!id) {
-        return res.status(400).json({ message: "User ID required" })
+    if (!id || typeof id !== "string") {
+        return res.status(400).json({ message: "Valid User ID required" })
     }
 
-    const note = await Note.findOne({ user: id }).lean().exec()
+    const note = await Note.findOne({ user: { $eq: id } }).lean().exec()
     if (note) {
         return res.status(400).json({ message: "User has assigned notes" })
     }
