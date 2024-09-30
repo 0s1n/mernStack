@@ -62,7 +62,10 @@ const updateUser = async (req, res) => {
         return res.status(400).json({ message: "All fields are required" })
     }
 
-    const user = await User.findById(id).exec()
+    if (typeof id !== "string") {
+        return res.status(400).json({ message: "Invalid User ID" })
+    }
+    const user = await User.findOne({ _id: { $eq: id } }).exec()
 
     if (!user) {
         return res.status(400).json({ message: "User not found" })
