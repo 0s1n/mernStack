@@ -72,7 +72,7 @@ const updateNote = async (req, res) => {
     }
 
     // Check for duplicate title
-    const duplicate = await Note.findOne({ title }).collation({ locale: "en", strength: 2 }).lean().exec()
+    const duplicate = await Note.findOne({ title: { $eq: title } }).collation({ locale: "en", strength: 2 }).lean().exec()
 
     // Allow renaming of the original note 
     if (duplicate && duplicate?._id.toString() !== id) {
