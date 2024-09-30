@@ -36,7 +36,7 @@ const createNewNote = async (req, res) => {
     }
 
     // Check for duplicate title
-    const duplicate = await Note.findOne({ title }).collation({ locale: "en", strength: 2 }).lean().exec()
+    const duplicate = await Note.findOne({ title: { $eq: title } }).collation({ locale: "en", strength: 2 }).lean().exec()
 
     if (duplicate) {
         return res.status(409).json({ message: 'Duplicate note title' })
