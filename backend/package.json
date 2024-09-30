@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "techNotes MERN Project",
 	"keywords": [],
-	"license": "ISC",
+	"license": "MIT",
 	"author": "0s1n",
 	"type": "commonjs",
 	"main": "index.js",
@@ -27,8 +27,5 @@
 	},
 	"devDependencies": {
 		"nodemon": "^3.0.1"
-	},
-	"engines": {
-		"node": "18.x"
 	}
 }
